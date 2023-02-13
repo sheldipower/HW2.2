@@ -1,23 +1,37 @@
-public class Car {
-    private final String brand;
-    private final String model;
+package transport;
+
+public class Car extends transport {
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
     private String transmission;
     private final String bodyType;
     private int registrationNumber;
     private final int numberOfSeats;
     private boolean rubber;
+    private Key key;
 
-    public Car(String brand, String model, double engineVolume, String color, int year, String country, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean rubber) {
-        this.brand = brand;
-        this.model = model;
+    public static class Key {
+        private final boolean remoteRun;
+        private final boolean withoutAccess;
+
+        public Key(boolean remoteRun, boolean withoutAccess) {
+            this.remoteRun = remoteRun;
+            this.withoutAccess = withoutAccess;
+        }
+
+        public boolean isRemoteRun() {
+            return remoteRun;
+        }
+
+        public boolean isWithoutAccess() {
+            return withoutAccess;
+        }
+    }
+
+
+    public Car( double engineVolume, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean rubber, Key key)
+    {
+ super(brand, modal, year, country, color);
         this.engineVolume = engineVolume;
-        this.color = color;
-        this.year = year;
-        this.country = country;
         this.transmission = transmission;
         this.bodyType = bodyType;
         this.registrationNumber = registrationNumber;
@@ -25,13 +39,7 @@ public class Car {
         this.rubber = rubber;
     }
 
-    private String getBrand() {
-        return brand;
-    }
 
-    private String getModel() {
-        return model;
-    }
 
     private double getEngineVolume() {
         return engineVolume;
@@ -41,19 +49,7 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    private String getColor() {
-        return color;
-    }
 
-    private void setColor(String color) {
-        this.color = color;}
-        private int getYear () {
-            return year;
-        }
-
-        private String getCountry () {
-            return country;
-        }
 
         private String getTransmission () {
             return transmission;
